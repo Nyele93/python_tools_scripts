@@ -63,7 +63,7 @@ with open(output_file, mode) as output:
       output.write(f'--Update statements generated for table {tgt_tbl_name} below:\n')
 # Generate SQL INSERT statements for each random datetime value
       for i, random_dt in enumerate(sorted_dt_list, start=1):
-          sql_update = f"UPDATE {tgt_tbl_name} SET ({tgt_col_name}) = '{random_dt.strftime('%Y-%m-%d %H:%M:%S')}' WHERE id = {i};"
+          sql_update = f"UPDATE {tgt_tbl_name} SET {tgt_col_name} = '{random_dt.strftime('%Y-%m-%d %H:%M:%S')}' WHERE id = {i};"
           #sql_insert_list.append(sql_insert)
           output.write(sql_update + '\n')
 
